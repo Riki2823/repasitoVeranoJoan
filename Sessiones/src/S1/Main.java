@@ -20,7 +20,23 @@ public class Main {
         */
         System.out.println("Este es el ejercicio 1 --------------------------------");
 
+        for (int numero = 1; numero < 101; numero++) {
+
+            if (numero % 3 == 0){
+                System.out.println("fizz");
+            } else if (numero % 5 == 0){
+                System.out.println("buzz");
+            }
+
+            if (numero % 3 == 0 && numero % 5 == 0){
+                System.out.println("fizzbuzz");
+            }
+
+            System.out.println(numero + "\n");
+        }
+
     }
+
 
     private static void ejercicio2() {
         /*
@@ -32,6 +48,21 @@ public class Main {
         */
         System.out.println("Este es el ejercicio 2 --------------------------------");
 
+
+        int numero2 = 0;
+        int numero3 = 1;
+        System.out.println(numero2);
+        System.out.println(numero3);
+        for (int contador = 0; contador < 51; contador++) {
+            Integer res = null;
+            res = numero2 + numero3;
+            System.out.println(res);
+            numero2 = numero3;
+            numero3 = res;
+
+        }
+
+
     }
 
     private static void ejercicio3() {
@@ -39,7 +70,27 @@ public class Main {
         Escribe un programa que se encargue de comprobar si un número es o no primo.
         Hecho esto, imprime los números primos entre 1 y 100.
         */
-        System.out.println("Este es el ejercicio 2 --------------------------------");
+        System.out.println("Este es el ejercicio 3 --------------------------------");
+        for (int numero = 1; numero < 101; numero++) {
+
+            boolean esPrimo = false;
+
+            for (int i = 1; i < 101; i++) {
+
+                if (numero == i || i == 1){
+                    if (numero % i == 0 && numero % 1 == 0){
+                        esPrimo = true;
+                    }
+                } else if (numero % i == 0){
+                    esPrimo = false;
+                    break;
+                }
+            }
+
+            if (esPrimo){
+                System.out.println(numero);
+            }
+        }
 
     }
 }
