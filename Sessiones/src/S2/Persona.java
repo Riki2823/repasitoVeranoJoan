@@ -1,10 +1,10 @@
-package S1;
+package S2;
 
-public class Perona {
+public class Persona {
     int edad;
     String nombre;
 
-    public Perona(int edad, String nombre){
+    public Persona(String nombre, int edad){
         this.edad = edad;
         this.nombre = nombre;
     }

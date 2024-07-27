@@ -36,16 +36,16 @@ public class MainTeorica {
 
         strings.add("Poll");
 
-        List<Perona> personas = new ArrayList<>();
+        List<Persona> personas = new ArrayList<>();
 
-        Perona joan = new Perona(21, "Joan");
-        Perona ricardo = new Perona(21, "Ricardo");
+        Persona joan = new Persona(21, "Joan");
+        Persona ricardo = new Persona(21, "Ricardo");
 
         personas.add(ricardo);
         personas.add(joan);
         printarPersonas(personas);
 
-        Perona waldo = crearPersona(21, "Waldo");
+        Persona waldo = crearPersona(21, "Waldo");
         personas.add(waldo);
 
         printarPersonas(personas);
@@ -53,30 +53,30 @@ public class MainTeorica {
         personas.remove(ricardo);
         printarPersonas(personas);
 
-        Map<String, Perona> mapaPersonas = new HashMap<>();
+        Map<String, Persona> mapaPersonas = new HashMap<>();
 
         mapaPersonas.put("Pollica", ricardo);
         mapaPersonas.put("Vicioso", joan);
         mapaPersonas.put("Coquero", waldo);
 
-        Perona resultado = buscarPersona("Vicioso", mapaPersonas);
+        Persona resultado = buscarPersona("Vicioso", mapaPersonas);
         printarPersona(resultado);
 
         mapaPersonas.remove("Pollica");
 
-        Perona resultado2 = buscarPersona("Pollica", mapaPersonas);
+        Persona resultado2 = buscarPersona("Pollica", mapaPersonas);
         printarPersona(resultado2);
 
     }
 
-    private static void printarPersona(Perona resultado) {
+    private static void printarPersona(Persona resultado) {
         System.out.println("---------------");
         System.out.println("Nombre: " + resultado.nombre + " Edad: " + resultado.edad);
     }
 
-    private static Perona buscarPersona(String key, Map<String, Perona> mapa) {
-        Perona ret = null;
-        for (Map.Entry<String, Perona> p: mapa.entrySet()){
+    private static Persona buscarPersona(String key, Map<String, Persona> mapa) {
+        Persona ret = null;
+        for (Map.Entry<String, Persona> p: mapa.entrySet()){
             if (p.getKey().equals(key)){
                 ret = p.getValue();
             }
@@ -84,13 +84,13 @@ public class MainTeorica {
         return ret;
     }
 
-    public static Perona crearPersona(int edad, String nombre){
-        return new Perona(edad, nombre);
+    public static Persona crearPersona(int edad, String nombre){
+        return new Persona(edad, nombre);
     }
 
-    private static void printarPersonas(List<Perona> personas) {
+    private static void printarPersonas(List<Persona> personas) {
         System.out.println("---------------");
-        for (Perona persona: personas){
+        for (Persona persona: personas){
             System.out.println("Nombre: " + persona.nombre + " Edad: " + persona.edad);
         }
     }
