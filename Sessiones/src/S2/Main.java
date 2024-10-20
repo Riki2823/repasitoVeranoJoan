@@ -1,5 +1,6 @@
 package S2;
 
+import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         ejercicio1();
-        ejercicio2();
+        //ejercicio2();
         //ejercicio3();
     }
 
@@ -22,6 +23,16 @@ public class Main {
         System.out.println("Este es el ejercicio 1 --------------------------------");
         List<String> palabras = Arrays.asList("hola", "mundo", "hola", "java", "mundo", "hola");
         Map<String, Integer> contadorPalabras = new HashMap<>();
+        for (int i = 0; i < palabras.size(); i++) {
+            String nombre = palabras.get(i);
+            if (contadorPalabras.containsKey(nombre)){
+                contadorPalabras.put(nombre, contadorPalabras.get(nombre) + 1);
+            } else {
+                contadorPalabras.put(nombre, 1);
+            }
+        }
+
+        System.out.println(contadorPalabras);
 
     }
 
