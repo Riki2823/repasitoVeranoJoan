@@ -27,8 +27,6 @@ public class Main {
         listaNumeros.add(65);
         listaNumeros.add(107);
         listaNumeros.add(82);
-
-
     }
 
     private static void ejercicio2() {
