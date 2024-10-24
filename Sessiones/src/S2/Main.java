@@ -1,6 +1,5 @@
 package S2;
 
-import java.io.OutputStream;
 import java.util.*;
 
 public class Main {
@@ -88,10 +87,10 @@ public class Main {
         */
 
         Integer opcion = 0;
-        while (opcion != 9) {
+        while (opcion != 7) {
             System.out.println("Bienvenido!");
             System.out.println("Eliga la opcion que desees");
-            System.out.println("1. Agregar un producto, 2. Actualizar un producto, 3. Eliminar un producto, 4. Buscar un producto 9. Salir");
+            System.out.println("1. Agregar un producto, 2. Actualizar un producto, 3. Eliminar un producto, 4. Buscar un producto 5. Agrupar productos por precio 6.Total de inventario 7. Salir");
 
             Scanner scanner = new Scanner(System.in);
             opcion = scanner.nextInt();
@@ -125,6 +124,20 @@ public class Main {
                     int product3 = scanner.nextInt();
                     for (int i = 0; i < product3; i++) {
                         buscarProducto(inventario);
+                    }
+                    break;
+                case 5:
+                    System.out.println("Cuantas veces desea agrupar distintos productos? ");
+                    product = scanner.nextInt();
+                    for (int i = 0; i < product; i++) {
+                        agruparProductosPorPrecio(inventario);
+                    }
+                    break;
+                case 6:
+                    System.out.println("Suma de todo el inventario");
+                    product = scanner.nextInt();
+                    for (int i = 0; i < product; i++) {
+                        calcValorTotalInventario(inventario);
                     }
                     break;
             }
@@ -195,15 +208,30 @@ public class Main {
 
     private static void agruparProductosPorPrecio (Map<String, Double> inventario){
         System.out.println("Pon el rango de precios: ");
+
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Primer numero: ");
         double num1 = scanner.nextDouble();
+
         System.out.println("Segundo numero: ");
         double num2 = scanner.nextDouble();
 
-        for (Double pActual : inventario.values()){
+        List<String> productosAgrupados = new ArrayList<>();
 
+        for (Map.Entry<String, Double> entrySet:inventario.entrySet()){
+            if (entrySet.getValue() > num1 && entrySet.getValue() < num2 || entrySet.getValue() < num1 && entrySet.getValue() > num2){
+                productosAgrupados.add(entrySet.getKey());
+            }
         }
+        System.out.println(productosAgrupados);
     }
 
+    private static void calcValorTotalInventario (Map<String, Double> inventario){
+        double total = 0;
+        for (Double valor:inventario.values()){
+            total += valor;
+        }
+        System.out.println(total);
+    }
 }
