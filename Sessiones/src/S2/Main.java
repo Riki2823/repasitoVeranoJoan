@@ -135,10 +135,7 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("Suma de todo el inventario");
-                    product = scanner.nextInt();
-                    for (int i = 0; i < product; i++) {
-                        calcValorTotalInventario(inventario);
-                    }
+                    calcValorTotalInventario(inventario);
                     break;
             }
         }
